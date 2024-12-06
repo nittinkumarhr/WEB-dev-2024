@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="custmoer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <div id="main">
+        <div id="nav">
+            <!-- Navigation bar here -->
+             <div id="navleft">
+                <div id="logo"></div>
+                <a href="">Home</a>
+                <a href="">Services</a>
+                <a href="">About</a>
+                <a href="">Dashboard</a>
+             </div>
+             <div id="navright"><i class="fa-solid fa-user"></i></div>
+        </div>
+        <div id="content">
+        <div id="register">
+            <section class="container">
+              <header>Registration Form</header>
+              <form class="form" action="#">
+                  <div class="input-box">
+                      <label>Full Name</label>
+                      <input required="" placeholder="Enter full name" type="text">
+                  </div>
+                  <div class="input-box">
+                    <label>Email</label>
+                    <input required="" placeholder="Enter Email" type="email">
+                </div>
+                <div class="input-box">
+                    <label>Password</label>
+                    <input required="" placeholder="Password" type="password">
+                </div>
+                <div class="input-box">
+                    <label>Conform Password </label>
+                    <input required="" placeholder="Enter full name" type="password">
+                </div>
+                  <div class="column">
+                      <div class="input-box">
+                        <label>Phone Number</label>
+                        <input required="" placeholder="Enter phone number" type="telephone">
+                      </div>
+                      <div class="input-box">
+                        <label>Birth Date</label>
+                        <input required="" placeholder="Enter birth date" type="date">
+                      </div>
+                  </div>
+                  <div class="gender-box">
+                    <label>Gender</label>
+                    <div class="gender-option">
+                      <div class="gender">
+                        <input checked="" name="gender" id="check-male" type="radio">
+                        <label for="check-male">Male</label>
+                      </div>
+                      <div class="gender">
+                        <input name="gender" id="check-female" type="radio">
+                        <label for="check-female">Female</label>
+                      </div>
+                      <div class="gender">
+                        <input name="gender" id="check-other" type="radio">
+                        <label for="check-other">Prefer not to say</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-box address">
+                    <label>Address</label>
+                    <input required="" placeholder="Enter street address" type="text">
+                    <div class="column">
+                      <div class="select-box">
+                        <select>
+                          <option hidden="">Country</option>
+                          <option>India</option>
+                          <option>UK</option>
+                          <option>Germany</option>
+                          <option>Japan</option>
+                        </select>
+                      </div>
+                    <input required="" placeholder="Enter your city" type="text">
+                    </div>
+                  </div>
+                  <button>Submit</button>
+              </form>
+            </section>
+
+        </div>
+        </div>
+    </div>
+</body>
+</html>

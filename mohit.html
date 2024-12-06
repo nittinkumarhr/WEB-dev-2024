@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search Engine</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.search-area{
+    width: 100%;
+    height: 400px;
+    background-image: url("search-img.jpg");
+    background-size: 100% 100%;
+   position: relative;
+    
+}
+.black{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.342);
+    width: 100%;
+    height: 100%;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    gap:20px
+}
+.content h1{
+    color: white;
+    font-size: 4vw;
+}
+.content p{
+    color: white;
+    font-size: 2.3vw;
+}
+.search-box{
+    width: 60%;
+    height: 15%;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+}
+.search-box input{
+    width: 80%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 20px;
+}
+.btn{
+    width: 20%;
+    height: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    padding-right: 10px;
+}
+.btn button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(10, 30, 111);
+    border: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.btn button:hover{
+    background-color: rgba(10, 30, 111, 0.566);
+}
+.image-gallery{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:20px;
+    padding-bottom:40px ;
+}
+.image-gallery .images{
+columns: 5 340px;
+max-width: 95%;
+margin-top: 20px;
+
+}
+.image{
+    overflow: hidden;
+    margin-bottom:15px;
+    list-style: none;
+    position: relative;
+   cursor: pointer;
+}
+.photo{
+    width: 100%;
+    transition: all 0.5s;
+}
+.photo:hover{
+    scale: 110%;
+}
+.image .details{
+    position: absolute;
+   bottom: -100px;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to top,black,transparent);
+    padding: 20px;
+    color:white;
+    transition: all 0.3s;
+
+}
+.image:hover .details{
+    bottom: 0;
+}
+.details .user{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px
+
+}
+.download img{
+    padding: 10px;
+    background-color: rgb(10, 30, 111);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.download img:hover{
+    background-color: rgba(10, 30, 111, 0.566);
+
+}
+#load{
+    width: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(10, 30, 111);
+    border: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    display: none;
+}
+#load:hover{
+    background-color: rgba(10, 30, 111, 0.566);
+}
+@media (max-width:800px) {
+    .content h1{
+        font-size: 5vw;
+    }
+    .content p{
+        color: white;
+        font-size: 3.32vw;
+    }
+    .search-box{
+        width: 80%;
+        height: 10%;
+    }
+    .btn button{
+        width: 35px;
+        height: 35px;
+
+    }
+    .btn button img{
+        width:20px
+    }
+}
+    </style>
+</head>
+<body>
+  <div class="search-area">
+    <div class="black"></div>
+    <div class="content">
+      <h1>Your Own Image Search Engine</h1>
+      <p>Search & Download Any Image Within A Second</p>
+      <div class="search-box">
+      <input type="text" placeholder="Search images...">
+      <div class="btn">
+        <button><img src="search.svg" alt="img"></button>
+      </div>
+      </div>
+    </div>
+  </div> 
+  <div class="image-gallery">
+    <ul class="images">
+        <li class="image"><img src="img-1.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-2.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-3.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-4.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-5.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-6.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-7.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-8.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-9.jpg" alt="img" class="photo"></li>
+        <li class="image"><img src="img-10.jpg" alt="img" class="photo"></li>
+    </ul>
+    <button id="load">More</button>
+  </div> 
+  <script>
+    let input = document.querySelector(".search-box input");
+    let btn = document.querySelector(".btn button");
+    let images = document.querySelector(".images");
+    let load = document.querySelector("#load");
+    
+    const accessKey = "5DyKhbKEcm_HnKv001ybxd-2Bec2HnKK1tHj6Y5D6Xs"; // Replace with your Unsplash API key
+    let page = 1;
+    let keyword = "";
+    
+    function download(imgurl) {
+        fetch(imgurl)
+            .then((res) => res.blob())
+            .then((file) => {
+                let a = document.createElement("a");
+                a.href = URL.createObjectURL(file);
+                a.download = `image_${new Date().getTime()}.jpg`;
+                a.click();
+            })
+            .catch(() => alert("Failed to download the image."));
+    }
+    
+    async function getResponse() {
+        keyword = input.value.trim();
+        if (!keyword) {
+            alert("Please enter a keyword to search.");
+            return;
+        }
+    
+        let url = `https://api.unsplash.com/search/photos?page=${page}&query=${keyword}&client_id=${accessKey}&per_page=12`;
+        try {
+            let response = await fetch(url);
+            if (!response.ok) throw new Error("Failed to fetch images.");
+            let data = await response.json();
+            let results = data.results;
+    
+            if (page === 1) {
+                images.innerHTML = ""; // Clear previous images on a new search
+            }
+    
+            if (results.length === 0) {
+                alert("No images found.");
+                load.style.display = "none";
+                return;
+            }
+    
+            load.style.display = "block";
+    
+            results.forEach((result) => {
+                let li = document.createElement("li");
+                li.classList.add("image");
+                let html = `
+                    <img src="${result.urls.small}" alt="img" class="photo">
+                    <div class="details">
+                        <div class="user">
+                            <img src="camera.svg" alt="img">
+                            <span>${result.user.name || "Unknown"}</span>
+                        </div>
+                        <div class="download" onclick="download('${result.urls.small}')">
+                            <img src="download.svg" alt="Download">
+                        </div>
+                    </div>`;
+                li.innerHTML = html;
+                images.appendChild(li);
+            });
+        } catch (error) {
+            console.error(error.message);
+            alert("An error occurred while fetching images.");
+        }
+    }
+    
+    input.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+            page = 1;
+            getResponse();
+        }
+    });
+    
+    btn.addEventListener("click", () => {
+        page = 1;
+        getResponse();
+    });
+    
+    load.addEventListener("click", () => {
+        page++;
+        getResponse();
+    });
+    </script>
+       
+</body>
+</html>

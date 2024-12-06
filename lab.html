@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 300px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="generateTable()">Generate Table</button>
+    
+    <div id="tableContainer"></div>
+    
+    <script>
+        function generateTable() {
+            
+            const number = parseInt(document.getElementById('numberInput').value);
+            
+
+            if (isNaN(number)) {
+                alert('Please enter a valid number!');
+                return;
+            }
+            
+         
+            let tableHTML = `<table>
+                                <thead>
+                                    <tr>
+                                        <th>Multiplier</th>
+                                        <th>Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
+            
+         
+            for (let i = 1; i <= 10; i++) {
+                tableHTML += `<tr>
+                                <td>${number} x ${i}</td>
+                                <td>${number * i}</td>
+                              </tr>`;
+            }
+            
+            tableHTML += `</tbody></table>`;
+            
+           
+            document.getElementById('tableContainer').innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
