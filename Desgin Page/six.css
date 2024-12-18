@@ -53,6 +53,9 @@ html,body {
     height: 100%;
     padding: 20px;
 }
+#nav #link i {
+    display: none;
+}
 #link a{
     color: white;
     text-decoration: none;
@@ -160,5 +163,22 @@ html,body {
     text-align: right;
     bottom: 5%;
     right: 5%;
+}
+
+@media screen and (max-width: 500px){
+    #main #nav{
+        height: 0px;
+        padding: 0 20px;
+    }
+    #nav #link a{
+        display: none;
+    }
+    #nav h1{
+        font-size: 17px;
+    }
+    #nav #link i {
+        display: initial;
+        font-size: 20px;
+    }
 
 }
