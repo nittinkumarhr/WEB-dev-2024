@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Request</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html,body     {
+            width: 100%;
+            height: 100%;
+
+        }
+        #main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #602727;
+        }
+
+        #card {
+            width: 500px;
+            height: 500px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            cursor: pointer;
+            flex-direction: column;
+        }
+        #card #logo{
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 2px solid #602727;
+            border-radius: 50%;
+            background-image: url('https://images.unsplash.com/photo-1620001001197-2484c0bb0f3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #card #logo h2{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute  ;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            margin: 10px 0;
+            font-size: 30px;
+            color: #070707;
+            z-index: 9999;
+            font-weight: bold;
+            background-color: #ffffff8c;
+            transition: background-color 0.6s ease;
+        }
+        #card #logo:hover h2{
+           opacity: 0;
+           background-color: transparent;
+            transition: background-color 0.3s ease;
+            text-wrap: none;
+        }
+        #card h2{
+            margin: 10px 0;
+            font-size: 24px;
+            color: #372760;
+            text-align: center;
+        }
+        #card p{
+            font-size: 15px;
+            color: #060606;
+            text-align: center;
+            font-weight: 500;
+        }
+        #card h5{
+            margin: 10px 0;
+            font-size: 18px;
+            color: #de0606;
+            text-align: center;
+            font-weight: 700;
+
+        }
+        #card button{
+            padding: 10px 20px;
+            background-color: #2a6027;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="card">
+            <div id="logo">
+                <H2 id="cover">New </H2>
+
+            </div>
+            <h2>Angel Prima</h2>
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere beatae quis voluptatibus similique, distinctio, illo impedit, tempora ipsam nam corrupti aperiam illum cupiditate tempore nemo eveniet laboriosam eligendi iusto aut.</p>
+            <h5 id ="status" >Stranger</h5>
+
+            <button id="btn">Add Friends</button>
+        </div>
+    </div>
+
+    <script>
+
+        const card = document.getElementById('btn');
+        const cover = document.getElementById('cover');
+        const status = document.getElementById('status');
+
+        var flag =0;
+        card.addEventListener('click', () => {
+            if(flag == 0) {
+            card.style.backgroundColor = '#602727';
+            card.style.color = '#fff';
+            status.innerHTML = "Friendship go...";
+            status.style.color = 'green';
+            card.innerHTML = ' Request Sent!';
+            card.style.borderRadius = "5px";
+            cover.style.opacity = 0;
+            
+            flag = 1;
+            }
+            else {
+                card.style.backgroundColor = '#2a6027';
+                card.style.color = '#fff';
+                card.innerHTML = 'Add Friends';
+                card.style.borderRadius = "5px";
+                cover.style.opacity = 1;
+                status.innerHTML = "Stranger";
+                status.style.color = 'red';
+                flag = 0;
+            }  
+    
+        });
+
+    </script>
+</body>
+</html>

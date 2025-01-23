@@ -35,6 +35,7 @@ overflow: hidden;
     object-position: 50% 50%;
     filter: brightness(0.8);
 }
+
 #right{
     position: absolute;
     right: 0;
