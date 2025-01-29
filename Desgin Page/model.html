@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Design</title>
+    <link rel="stylesheet" href="model.css">
+</head>
+<body>
+    <div id="main">
+        <div id="mode">
+            <div id="card">Error Keep check your system 👹</div>
+        </div>
+
+       <button>Click me!</button>
+
+    </div>
+
+    <script>
+
+        var btn = document.querySelector('button');
+        var model = document.getElementById('mode');
+
+
+        btn.addEventListener('click', function(){
+            model.style.opacity = '1';
+            setTimeout(function(){
+                model.style.opacity = '0';
+            }, 3000);
+
+        })
+    </script>
+</body>
+</html>
