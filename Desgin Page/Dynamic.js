@@ -14,8 +14,8 @@ function cardPrint(){
                 </div>
                 <h2>${item.name}</h2>
                 <p>${item.p}</p>
-                <h5 id="status">${item.status}</h5>
-                <button  id="${index}">Add Friends</button>
+                <h5 id="${item.status}">${item.status}</h5>
+                <button  class ="${item.status === "Friend"?"black":"non"}" id="${index}">${item.status ==="Stranger"?"Add Friend":"Remove Friend"}</button>
             </div>`;
     });
     var main = document.getElementById("main");
@@ -28,32 +28,32 @@ document.getElementById("main").addEventListener('click', function (params) {
         var index = params.target.id;
         if (arr[index].status === "Stranger") {
             arr[index].status = "Friend";
-            ChangecardStatus(1);
+          
         } else {
             arr[index].status = "Stranger";
-            ChangecardStatus(0);
+            
         }
         cardPrint();
     }
 });
 
 
-function ChangecardStatus(flag) {
-    const cover = document.getElementById('cover');
-    const status = document.getElementById('status');
-    const card = status.closest('.card');
+// function ChangecardStatus(flag) {
+//     const cover = document.getElementById('cover');
+//     const status = document.getElementById('status');
+//     const card = status.closest('.card');
 
-    if (flag == 1) {
-        card.style.backgroundColor = '#602727';
-        card.style.color = '#fff';
-        status.innerHTML = "Friendship go...";
-        status.style.color = 'green';
-        cover.style.opacity = 0;
-    } else {
-        card.style.backgroundColor = '#2a6027';
-        card.style.color = '#fff';
-        status.innerHTML = 'Stranger';
-        status.style.color = 'red';
-        cover.style.opacity = 1;
-    }
-}
+//     if (flag == 1) {
+//         card.style.backgroundColor = '#602727';
+//         card.style.color = '#fff';
+//         status.innerHTML = "Friendship go...";
+//         status.style.color = 'green';
+//         cover.style.opacity = 0;
+//     } else {
+//         card.style.backgroundColor = '#2a6027';
+//         card.style.color = '#fff';
+//         status.innerHTML = 'Stranger';
+//         status.style.color = 'red';
+//         cover.style.opacity = 1;
+//     }
+// }

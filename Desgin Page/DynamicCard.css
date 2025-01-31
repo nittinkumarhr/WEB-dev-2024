@@ -85,17 +85,37 @@ html,body     {
 .card h5{
     margin: 10px 0;
     font-size: 18px;
-    color: #de0606;
+   color: #fd3e04f0;
     text-align: center;
     font-weight: 700;
-
+}
+.card #Friend{
+    color: #3ad884;
+    display: flex;
+}
+.card .black{
+    color: #fbf9f9;
+    background-color: #060606;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    
+    &:hover{
+        color: #fff;
+        background-color: #3ad884;
+        transition: background-color 0.3s ease;
+    }
 }
 .card button{
     padding: 10px 20px;
-    background-color: #2a6027;
+    background-color: #24dd1a;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    &:hover{
+        background-color: #141515;
+        transition: background-color 0.3s ease;
+    }
 }
