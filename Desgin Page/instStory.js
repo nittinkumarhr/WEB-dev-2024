@@ -15,6 +15,8 @@ arr.forEach(function(arr ,index) {
                 </div>`;
 });
 document.getElementById("inststory").innerHTML = htmlf;
+
+// Fullscreen Image
 document.getElementById("inststory").addEventListener("click", function( event ) {
     if (event.target.tagName === "IMG") {
         var imgfind = arr[event.target.id].img;
@@ -24,5 +26,22 @@ document.getElementById("inststory").addEventListener("click", function( event )
         fullScreen.style.backgroundSize = "cover";
         fullScreen.style.backgroundPosition = "center";
         fullScreen.style.backgroundRepeat = "no-repeat";
+        // Close Fullscreen Image after 5 seconds
+        setTimeout(function(){ fullScreen.style.display = "none"; }, 4000);
+
+        //gorw the progress bar
+        var elem = document.getElementById("grow");
+
+        var width = 0;
+        var id = setInterval(frame, 40);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+            }
+        }
+
     }     
 });
